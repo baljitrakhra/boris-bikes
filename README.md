@@ -26,22 +26,18 @@ As a User,
 So that I can use a good bike,
 I'd like to see if a bike is working
 
-As a User,
-So that I can use a bike,
-I'd like a docking station to release a bike.
-
 |  Objects        |  Messages      |
 | ----------      | -------------  | 
 | Person          |                |
-| Bike            | bike_is_working|
+| Bike            | bike_is_working?|
 | Docking_Station | release_bike   |
 
 ```mermaid
 graph TD;
     Person-->Docking_Station;
-    Docking_StationStation -->release_bike;
+    Docking_Station -->release_bike;
     release_bike -->Bike;
-    Bike -->bike_is_working;
+    Bike -->bike_is_working?;
 ```
 
 ## Collaborator
