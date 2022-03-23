@@ -1,4 +1,4 @@
-require 'boris_bike'
+require 'docking_station'
 
 describe DockingStation do
   it 'looks for method release_bike' do
