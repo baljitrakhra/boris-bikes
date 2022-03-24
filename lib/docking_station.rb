@@ -1,7 +1,7 @@
 require_relative './bike.rb'
 
 class DockingStation
-  attr_reader :bike # Shorthand for def bike!
+  attr_reader :bike # Shorthand for def bike
 
   def release_bike
     fail 'No bikes available' unless @bike
@@ -9,6 +9,7 @@ class DockingStation
   end
 
   def dock(bike)
+    fail 'Docking station full' if @bike
     @bike = bike
   end
 
