@@ -1,11 +1,12 @@
 require_relative './bike.rb'
 
 class DockingStation
-  attr_reader :bikes # Shorthand for def bike
+  attr_reader :bikes, :capacity # Shorthand for def bike
   DEFAULT_CAPACITY = 20
 
-  def initialize
+  def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
+    @capacity = capacity
   end
 
   def release_bike
