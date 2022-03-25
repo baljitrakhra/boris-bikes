@@ -4,18 +4,20 @@ describe DockingStation do
   it { is_expected.to respond_to :release_bike }
 
   describe '#release_bike' do
+    let(:bike) { double :bike }
     it "releases a bike" do
-      bike = double(:bike)
+      allow(bike).to receive(:working?).and_return(true)
       subject.dock bike
       expect(subject.release_bike).to eq bike
     end
     
     it "will only release bikes that are working" do
-    bike = double(:bike)
-    bike.report_broken
-    station = DockingStation.new
-    station.dock(bike)
-    expect(station.release_bike).to eq "No working bikes avaliable"  
+      allow(bike).to receive(:report_broken).and_return(false)
+      allow(bike).to receive(:working?).and_return(false)
+      bike.report_broken
+      station = DockingStation.new
+      station.dock(bike)
+      expect(station.release_bike).to eq "No working bikes avaliable"  
     end
 
   end
