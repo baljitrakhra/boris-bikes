@@ -52,4 +52,12 @@ describe DockingStation do
     subject.bikes
     expect(subject.bikes).not_to be_empty
   end
+
+  it "can be told a bike that's being docked is broken" do
+    it { is_expected.to respond_to(:dock).with(2).argument }
+  end
+
+
+
+
 end
