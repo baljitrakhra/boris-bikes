@@ -11,7 +11,10 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if empty? # empty? is a private class method.
-    @bikes.pop
+    
+    working_bikes = @bikes.select {|bike| bike.working? == true }
+    working_bikes.empty? ? "No working bikes avaliable" : working_bikes.pop
+  
   end
 
   def dock(bike)
